@@ -24,7 +24,7 @@ const Register = () => {
         hookError,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    
+
     //get name
     const nameChange = event => {
         setUserInfo({ ...userInfo, name: event.target.value });
@@ -86,6 +86,10 @@ const Register = () => {
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control className='input' onChange={PasswordChange} name='password' type="password" placeholder="Password" />
+
+                        {
+                            errors && <p className="error-msg">{errors.passwordError}</p>
+                        }
                     </Form.Group>
 
 
