@@ -1,25 +1,107 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css'
+import auth from '../../../firebase.init';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
-    
+    const [userInfo, setUserInfo] = useState({
+        name: '',
+        email: '',
+        password: '',
+    });
+    const [errors, setErrors] = useState({
+        emailError: '',
+        passwordError: '',
+        generalError: '',
+    })
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        hookError,
+    ] = useSignInWithEmailAndPassword(auth);
+
+
+    //get email
+    const emailChange = event => {
+        const emailRegex = /\S+@\S+\.\S+/;
+        const validEmail = emailRegex.test(event.target.value);
+        if (validEmail) {
+            setUserInfo({ ...userInfo, email: event.target.value });
+            setErrors({ ...errors, emailError: '' });
+        } else {
+            setErrors({ ...errors, emailError: 'Invalid Email' });
+            setUserInfo({ ...userInfo, email: '' });
+        }
+    };
+
+    //get password
+    const PasswordChange = (event) => {
+
+        const passRegex = /.{6,}/;
+        const validPass = passRegex.test(event.target.value);
+        if (validPass) {
+            setUserInfo({ ...userInfo, password: event.target.value });
+            setErrors({ ...errors, passwordError: '' })
+
+        } else {
+            setErrors({ ...errors, passwordError: 'Password must be at least 6 characters' })
+
+        }
+    };
+
+
+    //login auth
+    const handleLogin = event => {
+        event.preventDefault();
+        signInWithEmailAndPassword(userInfo.email, userInfo.password);
+        console.log(user);
+        toast.success('Login Success')
+    }
+
+    //showing error message in toast
+    useEffect(() => {
+        if (hookError) {
+            switch (hookError?.code) {
+                case "auth/invalid-email":
+                    toast.error('invalid email')
+                    break;
+                case 'auth/wrong-password':
+                    toast.error('invalid password')
+                    break;
+                case 'auth/user-not-found':
+                    toast.error('user not found')
+                    break;
+                default:
+                    toast.error('something went wrong')
+                    break;
+            }
+        }
+    }, [hookError])
 
 
     return (
         <>
             <div className="container w-50 mx-auto login-form">
                 <h2 className=' text-center mt-3 mb-4 title'>Please Login</h2>
-                <Form>
+                <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control className='input' type="email" placeholder="Enter email" />
+                        <Form.Control className='input' onChange={emailChange} type="email" placeholder="Enter email" />
+                        {errors?.emailError && <p className="error-msg">{errors.emailError}</p>}
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control className='input' type="password" placeholder="Password" />
+                        <Form.Control className='input' onChange={PasswordChange} type="password" placeholder="Password" />
+                        {
+                            errors && <p className="error-msg">{errors.passwordError}</p>
+                        }
                     </Form.Group>
 
                     <p>Forget Password? <Link to='/login' className="text-primary">Reset</Link></p>
@@ -28,6 +110,7 @@ const Login = () => {
                         Login
                     </Button>
                 </Form>
+                <ToastContainer />
             </div>
         </>
     );

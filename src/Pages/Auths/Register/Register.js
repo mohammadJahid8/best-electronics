@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -59,14 +61,32 @@ const Register = () => {
     };
 
 
-
-
-
+    //signup auth
     const handleRegister = (event) => {
         event.preventDefault();
         createUserWithEmailAndPassword(userInfo.email, userInfo.password);
     }
-    console.log(user);
+    
+
+    useEffect(() => {
+        if (hookError) {
+            switch (hookError?.code) {
+                case "auth/invalid-email":
+                    toast.error('invalid email')
+                    break;
+                case 'auth/wrong-password':
+                    toast.error('invalid password')
+                    break;
+                case 'auth/user-not-found':
+                    toast.error('user not found')
+                    break;
+                default:
+                    toast.error('something went wrong')
+                    break;
+            }
+        }
+    }, [hookError]);
+
 
     return (
         <>
@@ -81,6 +101,7 @@ const Register = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control className='input' onChange={emailChange} name='email' type="email" placeholder="Enter email" />
+                        {errors?.emailError && <p className="error-msg">{errors.emailError}</p>}
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -98,6 +119,7 @@ const Register = () => {
                         Register
                     </Button>
                 </Form>
+                <ToastContainer />
             </div>
         </>
     );
