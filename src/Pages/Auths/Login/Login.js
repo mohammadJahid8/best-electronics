@@ -61,7 +61,9 @@ const Login = () => {
         event.preventDefault();
         signInWithEmailAndPassword(userInfo.email, userInfo.password);
         console.log(user);
-        toast.success('Login Success')
+        if (user) {
+            toast.success('Login Success')
+        }
     }
 
     //showing error message in toast
@@ -69,7 +71,7 @@ const Login = () => {
         if (hookError) {
             switch (hookError?.code) {
                 case "auth/invalid-email":
-                    toast.error('invalid email')
+                    toast.error('Invalid email')
                     break;
                 case 'auth/wrong-password':
                     toast.error('invalid password')
@@ -92,13 +94,13 @@ const Login = () => {
                 <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control className='input' onChange={emailChange} type="email" placeholder="Enter email" />
+                        <Form.Control className='input' onChange={emailChange} type="email" placeholder="Enter email" required/>
                         {errors?.emailError && <p className="error-msg">{errors.emailError}</p>}
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control className='input' onChange={PasswordChange} type="password" placeholder="Password" />
+                        <Form.Control className='input' onChange={PasswordChange} type="password" placeholder="Password" required/>
                         {
                             errors && <p className="error-msg">{errors.passwordError}</p>
                         }

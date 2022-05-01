@@ -24,7 +24,9 @@ const Register = () => {
         user,
         loading,
         hookError,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+
 
 
     //get name
@@ -47,7 +49,6 @@ const Register = () => {
 
     //get password
     const PasswordChange = (event) => {
-
         const passRegex = /.{6,}/;
         const validPass = passRegex.test(event.target.value);
         if (validPass) {
@@ -65,21 +66,15 @@ const Register = () => {
     const handleRegister = (event) => {
         event.preventDefault();
         createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+        if (user) {
+            toast.success('Register Success')
+        }
     }
-    
 
+    //showing error message in toast
     useEffect(() => {
         if (hookError) {
             switch (hookError?.code) {
-                case "auth/invalid-email":
-                    toast.error('invalid email')
-                    break;
-                case 'auth/wrong-password':
-                    toast.error('invalid password')
-                    break;
-                case 'auth/user-not-found':
-                    toast.error('user not found')
-                    break;
                 default:
                     toast.error('something went wrong')
                     break;
@@ -100,19 +95,18 @@ const Register = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control className='input' onChange={emailChange} name='email' type="email" placeholder="Enter email" />
+                        <Form.Control className='input' onChange={emailChange} name='email' type="email" placeholder="Enter email" required />
                         {errors?.emailError && <p className="error-msg">{errors.emailError}</p>}
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control className='input' onChange={PasswordChange} name='password' type="password" placeholder="Password" />
+                        <Form.Control className='input' onChange={PasswordChange} name='password' type="password" placeholder="Password" required />
 
                         {
                             errors && <p className="error-msg">{errors.passwordError}</p>
                         }
                     </Form.Group>
-
 
                     <p>Already have an account? <Link to='/login' className="text-primary">Login Instead</Link></p>
                     <Button variant="dark w-50 mx-auto d-block " type="submit" className='input'>

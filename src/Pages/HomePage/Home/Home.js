@@ -1,4 +1,5 @@
 import React from 'react';
+import Inventory from '../../Inventory/Inventory';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
@@ -6,8 +7,8 @@ import Header from '../Header/Header';
 const Home = () => {
     return (
         <div>
-
-            <Header />
+            <Inventory />
+            
         </div>
     );
 };
