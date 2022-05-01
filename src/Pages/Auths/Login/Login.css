@@ -1,0 +1,35 @@
+.login-form {
+    margin-top: 60px;
+    width: 30% !important;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.error-msg {
+    color: red !important;
+    font-size: 16px;
+    margin-top: 5px;
+    text-align: start;
+}
+
+.input:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+
+
+@media only screen and (max-width: 576px) {
+    .login-form {
+        width: 80% !important;
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+    .login-form {
+        width: 80% !important;
+    }
+}
