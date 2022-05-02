@@ -8,6 +8,7 @@ import Header from './Pages/HomePage/Header/Header';
 import Register from './Pages/Auths/Register/Register';
 import ItemDetail from './Pages/ItemDetail/ItemDetail';
 import RequireAuth from './Pages/Auths/RequireAuth/RequireAuth';
+import Footer from './Pages/HomePage/Footer/Footer';
 
 
 
@@ -27,7 +28,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
-
+      <Footer />
 
     </div>
   );
