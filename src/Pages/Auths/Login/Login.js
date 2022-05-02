@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -86,6 +86,16 @@ const Login = () => {
         }
     }, [hookError])
 
+    //redirecting the user after login
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    useEffect(() => {
+        if (user) {
+            navigate(from);
+        }
+    }, [user])
 
     return (
         <>
@@ -94,13 +104,13 @@ const Login = () => {
                 <Form onSubmit={handleLogin}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control className='input' onChange={emailChange} type="email" placeholder="Enter email" required/>
+                        <Form.Control className='input' onChange={emailChange} type="email" placeholder="Enter email" required />
                         {errors?.emailError && <p className="error-msg">{errors.emailError}</p>}
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control className='input' onChange={PasswordChange} type="password" placeholder="Password" required/>
+                        <Form.Control className='input' onChange={PasswordChange} type="password" placeholder="Password" required />
                         {
                             errors && <p className="error-msg">{errors.passwordError}</p>
                         }

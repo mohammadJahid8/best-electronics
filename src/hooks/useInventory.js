@@ -6,7 +6,7 @@ const useInventory = () => {
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/photos')
             .then(res => res.json())
-            .then(data => setInfo(data));
+            .then(data => setInfo(data.slice(0,6)));
     }, [])
 
     return [info];

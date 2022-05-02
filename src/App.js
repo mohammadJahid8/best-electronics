@@ -7,6 +7,7 @@ import Inventory from './Pages/Inventory/Inventory';
 import Header from './Pages/HomePage/Header/Header';
 import Register from './Pages/Auths/Register/Register';
 import ItemDetail from './Pages/ItemDetail/ItemDetail';
+import RequireAuth from './Pages/Auths/RequireAuth/RequireAuth';
 
 
 
@@ -18,7 +19,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/inventory" element={<Inventory />} />
-        <Route path="/inventory/:inventoryId" element={<ItemDetail />} />
+        <Route path="/inventory/:inventoryId" element={
+          <RequireAuth>
+            <ItemDetail />
+          </RequireAuth>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
