@@ -6,6 +6,7 @@ import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 
 const Login = () => {
@@ -123,6 +124,7 @@ const Login = () => {
                     </Button>
                 </Form>
                 <ToastContainer />
+                <SocialLogin />
             </div>
         </>
     );
