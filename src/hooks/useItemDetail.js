@@ -4,7 +4,7 @@ const useItemDetail = (itemId) => {
     const [item, setItem] = useState();
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/photos/${itemId}`)
+        fetch(`http://localhost:5000/items/${itemId}`)
             .then(res => res.json())
             .then(data => setItem(data));
     }, [])

@@ -45,5 +45,5 @@ const Banner = () => {
         </div>
     );
 };
-
+w
 export default Banner;

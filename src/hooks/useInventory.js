@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 const useInventory = () => {
-    const [info, setInfo] = useState([]);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/photos')
+        fetch('http://localhost:5000/items')
             .then(res => res.json())
-            .then(data => setInfo(data.slice(0,6)));
+            .then(data => setItems(data.slice(0, 6)));
     }, [])
 
-    return [info];
+    return [items];
 };
 
 

@@ -49,6 +49,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            <hr className="bg-white" />
             <div className='footer-bottom'>
                 <span className="footer-text " >Created By <a href="www.google.com">Mohammad Jahid</a> | <span
                     className="far fa-copyright"></span> 2022 All rights reserved.</span>
