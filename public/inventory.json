@@ -2,7 +2,7 @@
     {
         "name": "T-Wolf Gaming Mouse",
         "supplier": "T-Wolf",
-        "quantity": "12",
+        "quantity": 12,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/mdc/689f6962dc063db2df4a564e5c2b6b51.png",
         "description": "V6 Gaming Mouse With DPI Button and multi-color lighting modes comfortable rubber coated surface for better grip"
@@ -10,7 +10,7 @@
     {
         "name": "Lenovo Air pod",
         "supplier": "Lenevo",
-        "quantity": "8",
+        "quantity": 8,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/97decff1cbf58acea6d1debccb65e557.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit expedita repudiandae reprehenderit temporibus, placeat quidem."
@@ -18,7 +18,7 @@
     {
         "name": "Realme",
         "supplier": "Realme",
-        "quantity": "5",
+        "quantity": 5,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/d2894ba6c97c35e57c065c01fb7a87f4.png",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit expedita repudiandae reprehenderit temporibus, placeat quidem."
@@ -26,7 +26,7 @@
     {
         "name": "Imilab kw66 SmartWatch",
         "supplier": "Imilab",
-        "quantity": "22",
+        "quantity": 22,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/895fee062d25fafc68cd09a0652c0005.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit expedita repudiandae reprehenderit temporibus, placeat quidem."
@@ -34,7 +34,7 @@
     {
         "name": "HP Laptop",
         "supplier": "HP",
-        "quantity": "7",
+        "quantity": 7,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/bce5efac928e21b10a758bb0b3dbd83a.png",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit expedita repudiandae reprehenderit temporibus, placeat quidem."
@@ -42,7 +42,7 @@
     {
         "name": "HP Computer",
         "supplier": "HP",
-        "quantity": "4",
+        "quantity": 4,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/d9e51c6ee58f0957c12244208caecf00.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit expedita repudiandae reprehenderit temporibus, placeat quidem."
@@ -50,7 +50,7 @@
     {
         "name": "Whirlpool Microwave Oven",
         "supplier": "Whirlpool",
-        "quantity": "8",
+        "quantity": 8,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/ca320b7e4bfb473c8557efa308c63be5.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit expedita repudiandae reprehenderit temporibus, placeat quidem."
@@ -58,7 +58,7 @@
     {
         "name": "Samsung Fridge",
         "supplier": "Samsung",
-        "quantity": "9",
+        "quantity": 9,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/9a904fc661a6bb681a54d1e3ffec5dc6.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit expedita repudiandae reprehenderit temporibus, placeat quidem."
@@ -66,7 +66,7 @@
     {
         "name": "Television",
         "supplier": "Sony",
-        "quantity": "10",
+        "quantity": 0,
         "price": 200,
         "image": "https://static-01.daraz.com.bd/p/30951bb2d63fa96b1455e2d5afbef1bb.jpg",
         "description": "dsfhjdsgklvnbvg;jfaog;ibhndfs;bdnfasg;irewgh"
