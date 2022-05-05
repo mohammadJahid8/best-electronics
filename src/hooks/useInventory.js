@@ -6,7 +6,7 @@ const useInventory = () => {
     useEffect(() => {
         fetch('http://localhost:5000/items')
             .then(res => res.json())
-            .then(data => setItems(data.slice(0, 6)));
+            .then(data => setItems(data));
     }, [])
 
     return [items];

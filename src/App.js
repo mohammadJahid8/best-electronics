@@ -9,6 +9,7 @@ import Register from './Pages/Auths/Register/Register';
 import ItemDetail from './Pages/ItemDetail/ItemDetail';
 import RequireAuth from './Pages/Auths/RequireAuth/RequireAuth';
 import Footer from './Pages/HomePage/Footer/Footer';
+import ManageInventory from './Pages/ManageInventory/ManageInventory';
 
 
 
@@ -27,9 +28,10 @@ function App() {
         } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path='/manageinventory' element={<ManageInventory />} />
       </Routes>
       <Footer />
-      
+
     </div>
   );
 }
