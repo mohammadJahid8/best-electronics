@@ -3,6 +3,7 @@ import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import CustomLink from '../../../CustomLink/CustomLink';
 import auth from '../../../firebase.init';
 import './Header.css'
 
@@ -33,30 +34,30 @@ const Header = () => {
                                 <span className="nav-text nav-dropdown">Dropdown</span>
                             } id="collasible-nav-dropdown" className='ps-3'>
 
-                                <NavDropdown.Item as={Link} to="/home" className='nav-text'>Home</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/inventory" className='nav-text'>Inventory</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/blogs" className='nav-text'>Blogs</NavDropdown.Item>
+                                <NavDropdown.Item as={CustomLink} to="/home" className='nav-text'>Home</NavDropdown.Item>
+                                <NavDropdown.Item as={CustomLink} to="/inventory" className='nav-text'>Inventory</NavDropdown.Item>
+                                <NavDropdown.Item as={CustomLink} to="/blogs" className='nav-text'>Blogs</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item as={Link} to="/about" className='nav-text'>About</NavDropdown.Item>
+                                <NavDropdown.Item as={CustomLink} to="/about" className='nav-text'>About</NavDropdown.Item>
                             </NavDropdown>}
                     </Nav>
 
                     <Nav>
                         {
                             !user &&
-                            <Nav.Link as={Link} to="/home" className='nav-text'>Home</Nav.Link>}
+                            <Nav.Link as={CustomLink} to="/home" className='nav-text'>Home</Nav.Link>}
                         {
                             !user &&
-                            <Nav.Link as={Link} to="/inventory" className='nav-text'>Inventory</Nav.Link>}
+                            <Nav.Link as={CustomLink} to="/inventory" className='nav-text'>Inventory</Nav.Link>}
                         {
                             user &&
-                            <Nav.Link as={Link} to="/manageinventory" className='nav-text'>Manage Items</Nav.Link>
+                            <Nav.Link as={CustomLink} to="/manageinventory" className='nav-text'>Manage Items</Nav.Link>
                         }
 
-                        {user && <Nav.Link as={Link} to="/additem" className='nav-text'>Add Items</Nav.Link>}
-                        {user && <Nav.Link as={Link} to="/myitem" className='nav-text'>My Items</Nav.Link>}
-                        {!user && <Nav.Link as={Link} to="/blogs" className='nav-text'>Blogs</Nav.Link>}
-                        {!user && <Nav.Link as={Link} to="/about" className='nav-text'>About</Nav.Link>}
+                        {user && <Nav.Link as={CustomLink} to="/additem" className='nav-text'>Add Items</Nav.Link>}
+                        {user && <Nav.Link as={CustomLink} to="/myitem" className='nav-text'>My Items</Nav.Link>}
+                        {!user && <Nav.Link as={CustomLink} to="/blogs" className='nav-text'>Blogs</Nav.Link>}
+                        {!user && <Nav.Link as={CustomLink} to="/about" className='nav-text'>About</Nav.Link>}
 
                         {
                             user ?
