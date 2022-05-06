@@ -14,7 +14,7 @@ body {
 .container-footer {
     max-width: 1170px;
     margin: auto;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
 }
 
 .row-footer {
@@ -30,7 +30,7 @@ ul {
 .footer {
 
     background-color: #24262b;
-    padding: 70px 0 20px 0;
+    padding: 40px 0 20px 0;
 
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useItemDetail from '../../hooks/useItemDetail';
+import Footer from '../HomePage/Footer/Footer';
+import Header from '../HomePage/Header/Header';
 
 const ItemDetail = () => {
     const { inventoryId } = useParams();
@@ -60,31 +62,36 @@ const ItemDetail = () => {
 
 
     return (
-        <div className="mx-auto w-25 mb-5 mt-4">
-            <h2>Detail of:{inventoryId}</h2>
-            <div className="card " >
-                <div className="card-body" >
-                    <img className='w-100 ' src={item?.image} alt="" />
-                    <h5 className="card-title">{item?.name}</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">{item?.description}</h6>
-                    <p className="card-text">Quantity:{item?.quantity}</p>
-                    <button onClick={handleUpdateQuantity}>Delivered</button>
+        <>
+            <Header />
+            <div className="mx-auto w-25 mb-5 mt-4">
+                <h2>Detail of:{inventoryId}</h2>
+                <div className="card " >
+                    <div className="card-body" >
+                        <img className='w-100 ' src={item?.image} alt="" />
+                        <h5 className="card-title">{item?.name}</h5>
+                        <h6 className="card-subtitle mb-2 text-muted">{item?.description}</h6>
+                        <p className="card-text">Quantity:{item?.quantity}</p>
+                        <button onClick={handleUpdateQuantity}>Delivered</button>
 
+                    </div>
+                </div>
+                <div className='mt-4'>
+                    <form className="row g-3" onSubmit={hanldeRestockItem}>
+                        <div className="col-auto">
+
+                            <input type="number" name="number" className="form-control" id="inputnumber" placeholder="Restock Quantity" />
+                        </div>
+                        <br />
+
+                        <button type="submit" className="btn btn-primary mb-3 w-25 d-block">Restock</button>
+
+                    </form>
                 </div>
             </div>
-            <div className='mt-4'>
-                <form className="row g-3" onSubmit={hanldeRestockItem}>
-                    <div className="col-auto">
+            <Footer />
 
-                        <input type="number" name="number" className="form-control" id="inputnumber" placeholder="Restock Quantity" />
-                    </div>
-                    <br />
-
-                    <button type="submit" className="btn btn-primary mb-3 w-25 d-block">Restock</button>
-
-                </form>
-            </div>
-        </div>
+        </>
     );
 };
 

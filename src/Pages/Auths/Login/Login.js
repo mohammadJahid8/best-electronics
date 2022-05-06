@@ -7,6 +7,8 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Footer from '../../HomePage/Footer/Footer';
+import Header from '../../HomePage/Header/Header';
 
 
 const Login = () => {
@@ -100,6 +102,7 @@ const Login = () => {
 
     return (
         <>
+            <Header />
             <div className="container w-50 mx-auto login-form">
                 <h2 className=' text-center mt-3 mb-4 title'>Please Login</h2>
                 <Form onSubmit={handleLogin}>
@@ -126,6 +129,7 @@ const Login = () => {
                 <ToastContainer />
                 <SocialLogin />
             </div>
+            <Footer />
         </>
     );
 };
