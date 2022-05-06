@@ -9,9 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Footer from '../../HomePage/Footer/Footer';
 import Header from '../../HomePage/Header/Header';
+import axios from 'axios';
 
 
 const Login = () => {
+
     const [userInfo, setUserInfo] = useState({
         name: '',
         email: '',
@@ -28,6 +30,9 @@ const Login = () => {
         loading,
         hookError,
     ] = useSignInWithEmailAndPassword(auth);
+
+
+
 
 
     //get email
@@ -60,17 +65,25 @@ const Login = () => {
 
 
     //login auth
-    const handleLogin = event => {
+    const handleLogin = async event => {
         event.preventDefault();
-        signInWithEmailAndPassword(userInfo.email, userInfo.password);
-        console.log(user);
-        if (user) {
-            toast.success('Login Success')
-        }
-    }
+        await signInWithEmailAndPassword(userInfo.email, userInfo.password);
+        console.log(userInfo.email, userInfo.password);
+        const { data } = await axios.post('http://localhost:5000/gettoken', { email: userInfo?.email })
+        console.log(data);
+        localStorage.setItem('accessToken', data)
+        // if (user) {
+        // console.log(user);
+        toast.success('Login Success')
+        // }
+
+
+    };
+
 
     //showing error message in toast
     useEffect(() => {
+        console.log(user);
         if (hookError) {
             switch (hookError?.code) {
                 case "auth/invalid-email":
@@ -96,6 +109,7 @@ const Login = () => {
 
     useEffect(() => {
         if (user) {
+            console.log(user);
             navigate(from);
         }
     }, [user])
@@ -132,6 +146,6 @@ const Login = () => {
             <Footer />
         </>
     );
-};
 
+};
 export default Login;
