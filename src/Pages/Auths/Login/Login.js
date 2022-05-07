@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import auth from '../../../firebase.init';
-import { useSignInWithEmailAndPassword, useAuthState } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useAuthState, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -26,12 +26,16 @@ const Login = () => {
         passwordError: '',
         generalError: '',
     })
+
+    //authstate hook
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         hookError,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
 
 
 
@@ -114,6 +118,19 @@ const Login = () => {
         }
     }, [user])
 
+
+
+    //reset password
+    const handleResetPassword = async () => {
+        if (userInfo.email) {
+            await sendPasswordResetEmail(userInfo.email);
+            toast('Password reset Email sent');
+        }
+        else {
+            toast('Please enter your Email');
+        }
+    }
+
     return (
         <>
             <Header />
@@ -134,7 +151,7 @@ const Login = () => {
                         }
                     </Form.Group>
 
-                    <p>Forget Password? <Link to='/login' className="text-primary">Reset</Link></p>
+                    <p>Forget Password? <Link to='/login' className="text-primary" onClick={handleResetPassword}>Reset</Link></p>
                     <p>Don't have any account? <Link to='/register' className="text-primary">PLease Register</Link></p>
                     <Button variant="dark w-50 mx-auto d-block " type="submit" className='input'>
                         Login
