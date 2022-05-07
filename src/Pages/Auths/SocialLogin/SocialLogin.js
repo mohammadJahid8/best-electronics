@@ -3,11 +3,13 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import google from '../../../images/social/google.png'
 import Loading from '../../../Loading/Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [token] = useToken(user);
 
     //redirecting the user after login
     const navigate = useNavigate();
@@ -22,10 +24,10 @@ const SocialLogin = () => {
     }, [error]);
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             navigate(from);
         }
-    }, [user])
+    }, [token])
 
     if (loading) {
         return <Loading />

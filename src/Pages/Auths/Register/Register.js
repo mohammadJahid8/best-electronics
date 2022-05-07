@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Footer from '../../HomePage/Footer/Footer';
 import Header from '../../HomePage/Header/Header';
+import useToken from '../../../hooks/useToken';
 
 
 const Register = () => {
@@ -28,6 +29,23 @@ const Register = () => {
         loading,
         hookError,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const [token] = useToken(user);
+
+    //redirecting the user after register
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    useEffect(() => {
+        if (token) {
+            toast.success('Login Success');
+            setTimeout(() => {
+                navigate(from);
+            }, 1000);
+
+        }
+    }, [token])
 
 
     //get name
@@ -76,8 +94,6 @@ const Register = () => {
 
     //showing error message in toast
     useEffect(() => {
-        console.log(user);
-        console.log(user?.user?.email);
         if (hookError) {
             switch (hookError?.code) {
                 default:
@@ -86,22 +102,6 @@ const Register = () => {
             }
         }
     }, [hookError]);
-
-
-    //redirecting the user after register
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
-
-    useEffect(() => {
-        if (user) {
-            toast.success('Register Success');
-
-            setTimeout(() => {
-                navigate(from);
-            }, 1000);
-        }
-    }, [user])
 
 
     return (

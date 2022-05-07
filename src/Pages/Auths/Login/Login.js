@@ -3,15 +3,14 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import auth from '../../../firebase.init';
-import { useSignInWithEmailAndPassword, useAuthState, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
-
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Footer from '../../HomePage/Footer/Footer';
 import Header from '../../HomePage/Header/Header';
 import axios from 'axios';
 import Loading from '../../../Loading/Loading';
-
+import useToken from '../../../hooks/useToken';
 
 
 
@@ -36,7 +35,29 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+    const [token] = useToken(user);
 
+
+    //redirecting the user after login
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    useEffect(() => {
+        if (token) {
+            toast.success('Login Success');
+            setTimeout(() => {
+                navigate(from);
+            }, 1000);
+
+        }
+    }, [token])
+
+
+
+    if (loading) {
+        <Loading />
+    }
 
 
     //get email
@@ -69,18 +90,11 @@ const Login = () => {
         event.preventDefault();
         const { email } = userInfo;
         await signInWithEmailAndPassword(userInfo.email, userInfo.password);
-        console.log(userInfo.email, userInfo.password);
-        const { data } = await axios.post('http://localhost:5000/gettoken', { email })
-        localStorage.setItem('accessToken', data)
-        console.log(user, email, data);
     };
-
-
 
 
     //showing error message in toast
     useEffect(() => {
-        // console.log(user);
         if (hookError) {
             switch (hookError?.code) {
                 case "auth/invalid-email":
@@ -98,25 +112,6 @@ const Login = () => {
             }
         }
     }, [hookError])
-
-    //redirecting the user after login
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
-
-    if (loading) {
-        <Loading />
-    }
-
-    useEffect(() => {
-        if (user) {
-            toast.success('Login Success');
-            setTimeout(() => {
-                navigate(from);
-            }, 1000);
-
-        }
-    }, [user])
 
 
 
