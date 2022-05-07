@@ -1,9 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import auth from '../../firebase.init';
 import './InventoryItem.css'
 
 const InventoryItem = ({ item }) => {
     const { _id, title, image } = item;
+
 
     const navigate = useNavigate();
 

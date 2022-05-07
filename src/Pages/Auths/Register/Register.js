@@ -67,12 +67,12 @@ const Register = () => {
     const handleRegister = (event) => {
         event.preventDefault();
         createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-        // if (user) {
-        toast.success('Register Success')
+        if (user) {
+            toast.success('Register Success')
 
-        // }
+        }
     }
-    console.log(user);
+
 
     //showing error message in toast
     useEffect(() => {
@@ -95,10 +95,11 @@ const Register = () => {
 
     useEffect(() => {
         if (user) {
-            console.log(user);
-            console.log(user?.user?.email);
+            toast.success('Register Success');
 
-            navigate(from);
+            setTimeout(() => {
+                navigate(from);
+            }, 1000);
         }
     }, [user])
 

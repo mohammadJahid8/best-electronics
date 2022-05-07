@@ -3,17 +3,19 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import auth from '../../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Footer from '../../HomePage/Footer/Footer';
 import Header from '../../HomePage/Header/Header';
 import axios from 'axios';
+import Loading from '../../../Loading/Loading';
+
+
 
 
 const Login = () => {
-
     const [userInfo, setUserInfo] = useState({
         name: '',
         email: '',
@@ -33,8 +35,6 @@ const Login = () => {
 
 
 
-
-
     //get email
     const emailChange = event => {
         const emailRegex = /\S+@\S+\.\S+/;
@@ -50,40 +50,33 @@ const Login = () => {
 
     //get password
     const PasswordChange = (event) => {
-
         const passRegex = /.{6,}/;
         const validPass = passRegex.test(event.target.value);
         if (validPass) {
             setUserInfo({ ...userInfo, password: event.target.value });
             setErrors({ ...errors, passwordError: '' })
-
         } else {
             setErrors({ ...errors, passwordError: 'Password must be at least 6 characters' })
-
         }
     };
-
 
     //login auth
     const handleLogin = async event => {
         event.preventDefault();
+        const { email } = userInfo;
         await signInWithEmailAndPassword(userInfo.email, userInfo.password);
         console.log(userInfo.email, userInfo.password);
-        const { data } = await axios.post('http://localhost:5000/gettoken', { email: userInfo?.email })
-        console.log(data);
+        const { data } = await axios.post('http://localhost:5000/gettoken', { email })
         localStorage.setItem('accessToken', data)
-        // if (user) {
-        // console.log(user);
-        toast.success('Login Success')
-        // }
-
-
+        console.log(user, email, data);
     };
+
+
 
 
     //showing error message in toast
     useEffect(() => {
-        console.log(user);
+        // console.log(user);
         if (hookError) {
             switch (hookError?.code) {
                 case "auth/invalid-email":
@@ -107,10 +100,17 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    if (loading) {
+        <Loading />
+    }
+
     useEffect(() => {
         if (user) {
-            console.log(user);
-            navigate(from);
+            toast.success('Login Success');
+            setTimeout(() => {
+                navigate(from);
+            }, 1000);
+
         }
     }, [user])
 

@@ -12,13 +12,13 @@ import AddItem from './Pages/AddItem/AddItem';
 import MyItem from './Pages/MyItem/MyItem';
 import Blogs from './Pages/Blogs/Blogs';
 import NothingFound from './Pages/NothingFound/NothingFound';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 function App() {
   return (
-    <div >
-
+    <div className='App'>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
