@@ -5,7 +5,7 @@ const useItemDetail = (itemId) => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/items/${itemId}`)
+        fetch(`https://guarded-reef-79088.herokuapp.com/items/${itemId}`)
             .then(res => res.json())
             .then(data => setItem(data));
     }, [itemId])

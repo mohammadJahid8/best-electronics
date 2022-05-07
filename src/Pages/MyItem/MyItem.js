@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import axios from 'axios';
+import ShowMyItem from '../ShowMyItem/ShowMyItem';
 
 const MyItem = () => {
     const [myItems, setMyItems] = useState([]);
@@ -16,7 +17,7 @@ const MyItem = () => {
         const getMyItems = async () => {
             const email = user?.email;
             try {
-                const { data } = await axios.get(`http://localhost:5000/item?email=${email}`, {
+                const { data } = await axios.get(`https://guarded-reef-79088.herokuapp.com/item?email=${email}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                     }
@@ -38,6 +39,11 @@ const MyItem = () => {
             <Header />
             <div>
                 <h2>this is my item{myItems.length}</h2>
+                {
+                    myItems.map(myItem => (
+                        <ShowMyItem key={myItem._id} myItem={myItem} />
+                    ))
+                }
             </div>
             <Footer />
         </>

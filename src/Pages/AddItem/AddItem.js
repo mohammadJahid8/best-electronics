@@ -11,7 +11,7 @@ const AddItem = () => {
     const [user] = useAuthState(auth);
 
     const onSubmit = data => {
-        fetch(`http://localhost:5000/items`, {
+        fetch(`https://guarded-reef-79088.herokuapp.com/items`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

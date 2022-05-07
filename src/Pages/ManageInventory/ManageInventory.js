@@ -13,7 +13,7 @@ const ManageInventory = () => {
     const handleDeleteItem = id => {
         const proceed = window.confirm('Are you sure you want to delete this item?')
         if (proceed) {
-            fetch(`http://localhost:5000/items/${id}`, {
+            fetch(`https://guarded-reef-79088.herokuapp.com/items/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

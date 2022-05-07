@@ -19,7 +19,7 @@ const ItemDetail = () => {
 
 
         // send updated quantity to the server
-        fetch(`http://localhost:5000/items/${inventoryId}`, {
+        fetch(`https://guarded-reef-79088.herokuapp.com/items/${inventoryId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ const ItemDetail = () => {
         setItem(newItem);
 
         // send restock quantity to the server
-        fetch(`http://localhost:5000/items/${inventoryId}`, {
+        fetch(`https://guarded-reef-79088.herokuapp.com/items/${inventoryId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
