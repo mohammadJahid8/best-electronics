@@ -27,7 +27,7 @@ const CreativeTeam = () => {
                             </div>
 
                             <div className='single_advisor_details_info'>
-                                <h6>Samantha Sarah</h6>
+                                <h6>Mohammad</h6>
                                 <p className='designation'>Founder &amp; CEO</p>
                             </div>
                         </div>
@@ -42,7 +42,7 @@ const CreativeTeam = () => {
                             </div>
 
                             <div className='single_advisor_details_info'>
-                                <h6>Nazrul Islam</h6>
+                                <h6>Jahid</h6>
                                 <p className='designation'>UI Designer</p>
                             </div>
                         </div>
@@ -57,7 +57,7 @@ const CreativeTeam = () => {
                             </div>
 
                             <div className='single_advisor_details_info'>
-                                <h6>Riyadh Khan</h6>
+                                <h6>Zidan</h6>
                                 <p className='designation'>Developer</p>
                             </div>
                         </div>
@@ -72,8 +72,8 @@ const CreativeTeam = () => {
                             </div>
 
                             <div className='single_advisor_details_info'>
-                                <h6>Niloy Islam</h6>
-                                <p className='designation'>Marketing Manager</p>
+                                <h6>Zifat</h6>
+                            <p className='designation'>Marketing Manager</p>
                             </div>
                         </div>
                     </div>

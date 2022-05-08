@@ -27,12 +27,11 @@ const ManageInventory = () => {
 
     return (
         <>
-
             <div className="mt-5 container">
                 <Table striped bordered hover responsive>
                     <thead>
                         <tr>
-                            <th>Sl.</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Qauntity</th>
                             <th>Price</th>
@@ -43,13 +42,15 @@ const ManageInventory = () => {
                         {
                             items.map((item) =>
                                 <tr key={item._id}>
-                                    <td>{item.sl}</td>
+                                    <td>
+                                        <img className='item-img' src={item.image} alt="" />
+                                    </td>
                                     <td>{item.name}</td>
                                     <td>{item.quantity}</td>
                                     <td>${item.price}</td>
                                     <td>{item.description}</td>
                                     <td>
-                                        <button className="" onClick={() => handleDeleteItem(item._id)}>Delete</button>
+                                        <button className="btn btn-danger" onClick={() => handleDeleteItem(item._id)}>Delete</button>
                                     </td>
                                 </tr>
                             )

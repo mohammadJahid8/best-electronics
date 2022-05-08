@@ -16,7 +16,7 @@ const Inventory = () => {
     return (
         <>
 
-            <h2>this is in the inventory</h2>
+            <h2 className='mt-5 mb-4 text-center'>Inventory</h2>
 
             {
                 items.length === 0 ? <Loading /> :

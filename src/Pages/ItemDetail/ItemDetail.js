@@ -74,7 +74,8 @@ const ItemDetail = () => {
                         <h2 className="card-titles">{item?.name}</h2>
                         <span className="card-description subtle">{item?.description}</span>
                         <p>Supplier: {item?.supplier}</p>
-                        <p>Sold: {sold}</p>
+                        {sold > 0 ? <p>Sold: {sold}</p> : null}
+
                         {item?.quantity > 0 ?
                             < p > Quantity: {item?.quantity}</p>
                             :
