@@ -128,7 +128,7 @@ const Login = () => {
 
     return (
         <>
-            <Header />
+
             <div className="container w-50 mx-auto login-form">
                 <h2 className=' text-center mt-3 mb-4 title'>Please Login</h2>
                 <Form onSubmit={handleLogin}>
@@ -155,7 +155,7 @@ const Login = () => {
                 <ToastContainer />
                 <SocialLogin />
             </div>
-            <Footer />
+
         </>
     );
 

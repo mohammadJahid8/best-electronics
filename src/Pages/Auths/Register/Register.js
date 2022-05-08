@@ -106,7 +106,7 @@ const Register = () => {
 
     return (
         <>
-            <Header />
+
             <div className="container w-50 mx-auto login-form">
                 <h2 className=' text-center mt-3 mb-4 title'>Please Register</h2>
                 <Form onSubmit={handleRegister}>
@@ -138,7 +138,7 @@ const Register = () => {
                 <ToastContainer />
                 <SocialLogin />
             </div>
-            <Footer />
+
         </>
     );
 };

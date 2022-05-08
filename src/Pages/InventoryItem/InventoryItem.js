@@ -1,11 +1,10 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import auth from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 import './InventoryItem.css'
 
+
 const InventoryItem = ({ item }) => {
-    const { _id, title, image } = item;
+    const { _id, name, image, price, supplier, quantity, description } = item;
 
 
     const navigate = useNavigate();
@@ -15,19 +14,27 @@ const InventoryItem = ({ item }) => {
     }
     return (
         <>
-            <div className='col-4 g-4 mb-5' >
-                <div className="card" >
-                    <div className="card-body">
-                        <img className='w-100' src={image} alt="" />
-                        <h5 className="card-title">Items</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p className="card-text">{title}</p>
-                        <button className="button" onClick={() => navigateToItemDetails(_id)}>Update</button>
+            <div>
+                <div className="snip1418">
+                    <img src={image} alt="sample85" />
 
-                    </div>
-                </div >
+                    <figcaption>
+                        <h3>{name}</h3>
+                        <p>{description}</p>
+                        <p>Supplier:{supplier}</p>
+                        <p>Available:{quantity}</p>
+                        <div className="price">
+                            ${price}
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <div>
+                                <button className="update-button" onClick={() => navigateToItemDetails(_id)}> <span>Update</span></button>
+
+                            </div>
+                        </div>
+                    </figcaption>
+                </div>
             </div>
-
         </>
     );
 };

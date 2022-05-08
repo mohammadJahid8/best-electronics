@@ -4,8 +4,8 @@
 body {
     /* background: #DFC2F2; */
     /* background-image: linear-gradient(to right, #ffffb3, #ffe6e6); */
-    background-attachment: fixed;
-    background-size: cover;
+    /* background-attachment: fixed;
+    background-size: cover; */
 
 }
 
@@ -91,11 +91,11 @@ body {
 
 }
 
-.btn {
+.my-item-btn {
 
     transform: translateY(0px);
     transition: 0.3s linear;
-    background: #809fff;
+    background: lightcoral;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
@@ -108,12 +108,13 @@ body {
 
 }
 
-.btn:hover {
+.my-item-btn:hover {
+    padding-left: 50px;
     transform: translateY(-6px);
-    background: #1a66ff;
+    background: red;
 }
 
-.btn span {
+.my-item-btn span {
     font-family: 'Farsan', cursive;
     transition: transform 0.3s;
     display: inline-block;
@@ -123,19 +124,24 @@ body {
 
 }
 
-.btn .price,
-.shopping-cart {
+.delete:hover {
+    /* padding-left: 80px; */
+    /* width: 50px; */
+}
+
+.my-item-btn .price,
+.trash-can {
     background: #333;
     border: 0;
     margin: 0;
 }
 
-.btn .price {
+.my-item-btn .price {
     transform: translateX(-10%);
     padding-right: 15px;
 }
 
-.btn .shopping-cart {
+.my-item-btn .trash-can {
     transform: translateX(-100%);
     position: absolute;
     background: #333;
@@ -144,24 +150,25 @@ body {
     top: 0;
 }
 
-.btn .buy {
+.my-item-btn .delete {
     z-index: 3;
     font-weight: bolder;
 }
 
-.btn:hover .price {
+.my-item-btn:hover .price {
     transform: translateX(-110%);
 }
 
-.btn:hover .shopping-cart {
+.my-item-btn:hover .trash-can {
     transform: translateX(0%);
+
 }
 
 
 
 .product-image {
     transition: all 0.3s ease-out;
-    display: inline-block;
+    display: block;
     position: relative;
     overflow: hidden;
     height: 100%;

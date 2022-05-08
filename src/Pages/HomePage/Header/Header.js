@@ -5,7 +5,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import CustomLink from '../../../CustomLink/CustomLink';
 import auth from '../../../firebase.init';
-import './Header.css'
+import './Header.css';
+
 
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -24,7 +25,7 @@ const Header = () => {
                         alt="React Bootstrap logo"
                     />
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" className='navs' />
                 <Navbar.Collapse id="responsive-navbar-nav">
 
                     <Nav className="me-auto">

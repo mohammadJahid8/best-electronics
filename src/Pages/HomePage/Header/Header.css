@@ -9,18 +9,15 @@
 
 .nav-bar {
     background: whitesmoke !important;
-    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+    
 }
 
 .nav-text {
     color: black !important;
     text-transform: uppercase;
-    /* padding-bottom: 3px; */
-    /* padding-right: 5px; */
-    /* padding-left: 3px; */
-    /* margin: 0 8px; */
+    
     text-decoration: none;
-    /* color: gray; */
+    
     letter-spacing: 1px;
     font-weight: 500;
     font-size: 14px;
@@ -28,12 +25,14 @@
 }
 
 
-
 #collasible-nav-dropdown::after {
     color: black !important;
-    
+
 }
 
+.navs {
+    background-color: gray !important;
+}
 
 
 

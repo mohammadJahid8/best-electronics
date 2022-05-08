@@ -13,12 +13,17 @@ import MyItem from './Pages/MyItem/MyItem';
 import Blogs from './Pages/Blogs/Blogs';
 import NothingFound from './Pages/NothingFound/NothingFound';
 import 'react-toastify/dist/ReactToastify.css';
+import About from './Pages/About/About';
+import Header from './Pages/HomePage/Header/Header';
+import Footer from './Pages/HomePage/Footer/Footer';
+import CreativeTeam from './Pages/CreativeTeam/CreativeTeam';
 
 
 
 function App() {
   return (
     <div className='App'>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -26,6 +31,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/creative' element={<CreativeTeam />} />
 
         <Route path="/inventory/:inventoryId" element={
           <RequireAuth>
@@ -53,7 +60,7 @@ function App() {
 
         <Route path='*' element={<NothingFound />} />
       </Routes>
-
+      <Footer />
 
 
     </div>

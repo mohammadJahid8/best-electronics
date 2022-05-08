@@ -1,14 +1,19 @@
 import React from 'react';
+import GetInTouch from '../../GetInTouch/GetInTouch';
 import Inventory from '../../Inventory/Inventory';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
+import CreativeTeam from '../../CreativeTeam/CreativeTeam';
+
+import Banner from '../Banner/Banner';
+
 
 
 const Home = () => {
     return (
         <div>
-
+            <Banner />
             <Inventory />
+            <CreativeTeam />
+            <GetInTouch />
 
         </div>
     );

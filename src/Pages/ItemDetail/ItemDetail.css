@@ -1,0 +1,118 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.u-clearfix:before,
+.u-clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.u-clearfix:after {
+    clear: both;
+}
+
+.subtle {
+    color: rgb(88, 86, 86);
+}
+
+.card-container {
+    margin: 25px auto 0;
+    position: relative;
+    width: 692px;
+}
+
+
+.card-titles {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 300;
+    line-height: 60px;
+    margin: 0px 0;
+}
+
+.card-description {
+    display: inline-block;
+    font-weight: 300;
+    line-height: 22px;
+    margin: 10px 0;
+}
+
+
+
+.restock-field {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 4px 4px 7px 4px;
+    outline: none;
+    border: 1px solid #B0CFE0;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.restock-field:focus {
+    box-shadow: 0 0 5px #B0CFE0;
+    border: 1px solid #B0CFE0;
+}
+
+.restock-button {
+    -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+    box-shadow: inset 0px 1px 0px 0px #3985B1;
+    background-color: #216288;
+    border: 1px solid #17445E;
+    display: inline-block;
+    cursor: pointer;
+    color: #FFFFFF;
+    padding: 8px 10px;
+    text-decoration: none;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+
+.restock-button:hover {
+    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+    background-color: #28739E;
+}
+
+
+
+.scd-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    padding: 20px;
+    gap: 30px;
+    box-shadow: 0 0 15px rgba(75, 75, 75, .07);
+    margin: 25px auto 0;
+    width: 692px;
+
+
+}
+
+
+
+@media only screen and (max-width: 576px) {
+    .scd-card-container {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+}
+
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+    .scd-card-container {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+}

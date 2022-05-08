@@ -27,7 +27,7 @@ const ManageInventory = () => {
 
     return (
         <>
-            <Header />
+
             <div className="mt-5 container">
                 <Table striped bordered hover responsive>
                     <thead>
@@ -49,7 +49,7 @@ const ManageInventory = () => {
                                     <td>${item.price}</td>
                                     <td>{item.description}</td>
                                     <td>
-                                        <button className="btn btn-danger" onClick={() => handleDeleteItem(item._id)}>Delete</button>
+                                        <button className="" onClick={() => handleDeleteItem(item._id)}>Delete</button>
                                     </td>
                                 </tr>
                             )
@@ -57,10 +57,10 @@ const ManageInventory = () => {
                     </tbody>
                 </Table>
                 <div className="d-flex justify-content-end pb-5 pe-2">
-                    <Link to='/additem' className="btn btn-primary ">Add New Item</Link>
+                    <Link to='/additem' className="">Add New Item</Link>
                 </div>
             </div>
-            <Footer />
+
 
         </>
     );

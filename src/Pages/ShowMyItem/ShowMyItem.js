@@ -1,44 +1,57 @@
 import React from 'react';
+import useInventory from '../../hooks/useInventory';
 import './ShowMyItem.css'
 
 const ShowMyItem = ({ myItem }) => {
-    const { image, description } = myItem
+    const { name, quantity, price, image, description, _id } = myItem;
+    const [items, setItems] = useInventory();
+
+
+    //delete a item
+    const handleDeleteItem = id => {
+        const proceed = window.confirm('Are you sure you want to delete this item?')
+        if (proceed) {
+            fetch(`https://guarded-reef-79088.herokuapp.com/items/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remainingItems = items.filter(item => _id !== id)
+                    setItems(remainingItems);
+                })
+        }
+    }
     return (
         <div id="container">
 
-            <div class="product-details">
+            <div className="product-details">
 
-                <h1>CHRISTMAS TREE</h1>
-                <span class="hint-star star">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </span>
+                <h1>{name}</h1>
 
-                <p class="information">{description}</p>
+
+                <p className="information">{description}</p>
 
 
 
-                <div class="control">
+                <div className="control">
 
-                    <button class="btn">
-                        <span class="price">$250</span>
-                        <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                        <span class="buy">Get now</span>
+                    <button className="my-item-btn" onClick={() => handleDeleteItem(_id)}>
+                        {/* <span className="price">${price}</span> */}
+                        <span className="trash-can"><i className="fa fa-trash-can" aria-hidden="true"></i></span>
+                        <span className="delete">Delete</span>
                     </button>
 
                 </div>
 
             </div>
 
-            <div class="product-image">
+            <div className="product-image">
 
                 <img src={image} alt="" />
 
 
-                <div class="info">
+                <div className="info">
                     <h2> Description</h2>
                     <ul>
                         <li><strong>Height : </strong>5 Ft </li>

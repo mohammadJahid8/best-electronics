@@ -11,36 +11,50 @@ const AddItem = () => {
     const [user] = useAuthState(auth);
 
     const onSubmit = data => {
+        const products = { ...data, email: user.email };
         fetch(`https://guarded-reef-79088.herokuapp.com/items`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify(products)
         })
             .then(res => res.json())
             .then(result => {
                 console.log(result);
-                console.log(data);
+                console.log(products);
             })
     };
     return (
         <>
-            <Header />
-            <div className="mx-auto w-50">
-                <h2 className='text-center'>Please Add a New Item</h2>
-                <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                    <input className='mb-2' placeholder='Item Name' {...register("name", { required: true, maxLength: 20 })} />
-                    <input className='mb-2' placeholder='Email' value={user?.email} disabled type="email" {...register("email")} />
-                    <input className='mb-2' placeholder='Supplier' {...register("supplier", { required: true, maxLength: 20 })} />
-                    <input className='mb-2' placeholder='Quantity' type="number" {...register("quantity")} />
-                    <input className='mb-2' placeholder='Price' type="number" {...register("price")} />
-                    <input className='mb-2' placeholder='Photo URL' type="text" {...register("image")} />
-                    <textarea className='mb-2' placeholder='Description' {...register("description")} />
-                    <div className='d-flex justify-content-center'>
-                        <input type="submit" className='w-50' />
-                    </div>
-                </form>
-            </div>
-            <Footer />
+
+
+            <form className="form-style-9" onSubmit={handleSubmit(onSubmit)}>
+                <ul>
+                    <li>
+                        <input type="text" className="field-style field-split align-left" placeholder="Name" {...register("name", { required: true, maxLength: 20 })} />
+                        <input type="text" className="field-style field-split align-right" placeholder="Supplier" {...register("supplier", { required: true, maxLength: 20 })} />
+
+                    </li>
+                    <li>
+                        <input type="email" className="field-style field-full align-none" placeholder="Email" value={user?.email} disabled />
+                    </li>
+                    <li>
+                        <input type="number" className="field-style field-split align-right" placeholder="Quantity" {...register("quantity")} />
+                        <input type="text" className="field-style field-split align-left" placeholder="Price" {...register("price")} />
+                    </li>
+
+                    <li>
+                        <input type="text" className="field-style field-full align-none" placeholder="Image URL"  {...register("image")} />
+                    </li>
+                    <li>
+                        <textarea className="field-style" placeholder="Description" {...register("description")}></textarea>
+                    </li>
+                    <li>
+                        <input type="submit" value="Send Message" />
+                    </li>
+                </ul>
+            </form>
+
+
 
         </>
     );

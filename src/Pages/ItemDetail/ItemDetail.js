@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useItemDetail from '../../hooks/useItemDetail';
-import Footer from '../HomePage/Footer/Footer';
-import Header from '../HomePage/Header/Header';
+import './ItemDetail.css'
 
 const ItemDetail = () => {
     const { inventoryId } = useParams();
     const [item, setItem] = useItemDetail(inventoryId);
+    const [sold, setSold] = useState(0);
     const { quantity } = item;
     // console.log(quantity);
 
     //update quantity
     const handleUpdateQuantity = () => {
         let newQuantity = quantity - 1;
-        const newItem = { ...item, quantity: newQuantity };
+        let newSold = sold + 1;
+        const newItem = { ...item, quantity: newQuantity, sold: newSold };
         console.log(newItem);
+        setSold(newSold);
         setItem(newItem)
 
 
@@ -31,7 +33,6 @@ const ItemDetail = () => {
                 console.log('success', data);
                 // alert('updated quantity');
             })
-
 
     }
 
@@ -63,33 +64,41 @@ const ItemDetail = () => {
 
     return (
         <>
-            <Header />
-            <div className="mx-auto w-25 mb-5 mt-4">
-                <h2>Detail of:{inventoryId}</h2>
-                <div className="card " >
-                    <div className="card-body" >
-                        <img className='w-100 ' src={item?.image} alt="" />
-                        <h5 className="card-title">{item?.name}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted">{item?.description}</h6>
-                        <p className="card-text">Quantity:{item?.quantity}</p>
-                        <button onClick={handleUpdateQuantity}>Delivered</button>
+            <h1 className="text-center">Update Your Product</h1>
+            <div className="d-flex mb-5 mt-3 container justify-content-center">
+                <div className="scd-card-container">
+                    <div className='d-flex'>
+                        <img src={item?.image} alt="" className=" w-100" />
+                    </div>
+                    <div className="">
+                        <h2 className="card-titles">{item?.name}</h2>
+                        <span className="card-description subtle">{item?.description}</span>
+                        <p>Supplier: {item?.supplier}</p>
+                        <p>Sold: {sold}</p>
+                        {item?.quantity > 0 ?
+                            < p > Quantity: {item?.quantity}</p>
+                            :
+                            <p>Quantity: Stock Out</p>
+                        }
+                        <input type="button" value="Delivered" className='restock-button mb-3' onClick={handleUpdateQuantity} />
+
+                        <form className="input-container " onSubmit={hanldeRestockItem}>
+                            <input type="number" name="number" className="restock-field field-full align-none" placeholder="Quantity" />
+                            <input type="submit" value="Restock" className='restock-button' />
+                        </form>
+                        {/* <div className="card-read">Read</div> */}
 
                     </div>
+
                 </div>
-                <div className='mt-4'>
-                    <form className="row g-3" onSubmit={hanldeRestockItem}>
-                        <div className="col-auto">
 
-                            <input type="number" name="number" className="form-control" id="inputnumber" placeholder="Restock Quantity" />
-                        </div>
-                        <br />
-
-                        <button type="submit" className="btn btn-primary mb-3 w-25 d-block">Restock</button>
-
-                    </form>
-                </div>
             </div>
-            <Footer />
+
+
+
+
+
+
 
         </>
     );
