@@ -6,8 +6,8 @@ import './ItemDetail.css'
 const ItemDetail = () => {
     const { inventoryId } = useParams();
     const [item, setItem] = useItemDetail(inventoryId);
-    const [sold, setSold] = useState(0);
-    const { quantity } = item;
+    // const [sold, setSold] = useState(0);
+    const { quantity, sold } = item;
     // console.log(quantity);
 
     //update quantity
@@ -16,7 +16,6 @@ const ItemDetail = () => {
         let newSold = sold + 1;
         const newItem = { ...item, quantity: newQuantity, sold: newSold };
         console.log(newItem);
-        setSold(newSold);
         setItem(newItem)
 
 
@@ -74,14 +73,23 @@ const ItemDetail = () => {
                         <h2 className="card-titles">{item?.name}</h2>
                         <span className="card-description subtle">{item?.description}</span>
                         <p>Supplier: {item?.supplier}</p>
-                        {sold > 0 ? <p>Sold: {sold}</p> : null}
 
-                        {item?.quantity > 0 ?
+                        <p>Sold: {sold}</p>
+                        <p>
+                            Quantity:
+                            {quantity > 0 ?
+                                quantity
+                                :
+                                'Stock out'
+                            }
+                        </p>
+
+                        {/* {item?.quantity > 0 ?
                             < p > Quantity: {item?.quantity}</p>
                             :
                             <p>Quantity: Stock Out</p>
-                        }
-                        <input type="button" value="Delivered" className='restock-button mb-3' onClick={handleUpdateQuantity} />
+                        } */}
+                        <input type="button" value="Delivered" className='restock-button mb-3' onClick={handleUpdateQuantity} disabled={quantity <= 0} />
 
                         <form className="input-container " onSubmit={hanldeRestockItem}>
                             <input type="number" name="number" className="restock-field field-full align-none" placeholder="Quantity" />

@@ -1,18 +1,23 @@
 
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
+
 import './Banner.css'
 
 const Banner = () => {
     return (
-        <div>
-            <header>
-                <div className="overlay">
-                    <h1>Simply The Best</h1>
-                    <h3>Reasons for Choosing US</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab.</p>
-                    <br />
-                    <button className='banner-btn'>READ MORE</button>
+        <div className='banner-body'>
+
+
+
+            <header className="header">
+
+
+                <div className="text-box">
+                    <h1 className="heading-primary">
+                        <span className="heading-primary-main">Lorem ipsum dolor sit amet.</span>
+                        <span className="heading-primary-sub">Lorem ipsum dolor sit amet.</span>
+                    </h1>
+                    <a href="#" className="banner-btn banner-btn-white banner-btn-animated">Discover our products</a>
                 </div>
             </header>
         </div>
