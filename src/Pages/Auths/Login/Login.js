@@ -6,9 +6,6 @@ import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword, useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import Footer from '../../HomePage/Footer/Footer';
-import Header from '../../HomePage/Header/Header';
-import axios from 'axios';
 import Loading from '../../../Loading/Loading';
 import useToken from '../../../hooks/useToken';
 
@@ -34,8 +31,14 @@ const Login = () => {
         hookError,
     ] = useSignInWithEmailAndPassword(auth);
 
+    //reset password
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
     const [token] = useToken(user);
+
+
+    if (loading) {
+        <Loading />
+    }
 
 
     //redirecting the user after login
@@ -55,9 +58,7 @@ const Login = () => {
 
 
 
-    if (loading) {
-        <Loading />
-    }
+
 
 
     //get email
@@ -88,7 +89,6 @@ const Login = () => {
     //login auth
     const handleLogin = async event => {
         event.preventDefault();
-        const { email } = userInfo;
         await signInWithEmailAndPassword(userInfo.email, userInfo.password);
     };
 

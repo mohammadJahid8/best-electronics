@@ -24,7 +24,7 @@ const GetInTouch = () => {
                             <div className="screen-body-item left">
                                 <div className="app-title">
                                     <span>CONTACT</span>
-                                    <span>WITH THE MANAGER</span>
+                                    <span>WITH THE CEO</span>
                                 </div>
                                 <div className="app-contact">CONTACT INFO : +01633 909408</div>
                             </div>
@@ -43,7 +43,7 @@ const GetInTouch = () => {
                                         <input className="app-form-control btn-input" placeholder="MESSAGE" />
                                     </div>
                                     <div className="app-form-group buttons">
-                                        <button className="app-form-button btn-input">CANCEL</button>
+
                                         <button className="app-form-button btn-input">SEND</button>
                                     </div>
                                 </div>

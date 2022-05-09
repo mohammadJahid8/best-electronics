@@ -29,21 +29,21 @@ const Footer = () => {
                     </div>
 
                     <div className="footer-col">
-                        <h4>Shop</h4>
+                        <h4>Products</h4>
                         <ul>
-                            <li><a href="">Watch</a></li>
-                            <li><a href="">Bag</a></li>
-                            <li><a href="">Shoes</a></li>
-                            <li><a href="">Dress</a></li>
+                            <li><a href="">Phone</a></li>
+                            <li><a href="">Fridge</a></li>
+                            <li><a href="">Laptop</a></li>
+                            <li><a href="">Computer</a></li>
                         </ul>
                     </div>
 
                     <div className="footer-col">
                         <h4>Follow Us</h4>
                         <div className="social-links">
-                            <a href=""><i className="fab fa-facebook-f"></i></a>
-                            <a href=""><i className="fab fa-twitter"></i></a>
-                            <a href=""><i className="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/zahid.814"><i className="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/jahidishere/?fbclid=IwAR0FrVRT3fDdf5VMi2xwFJLh_KfGfudjPcJ16boOxzNWDQkOnUUBo-M4aWo"><i className="fab fa-twitter"></i></a>
+                            <a href="https://twitter.com/Mohammad_Jahid8?fbclid=IwAR0rU9D0L2O4-S_0ijhQq2oIDbwuf2--D0OeddV2a1tibz7uRcS3c1yWO-U"><i className="fab fa-instagram"></i></a>
                             <a href=""><i className="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>

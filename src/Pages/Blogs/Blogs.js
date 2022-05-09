@@ -1,7 +1,5 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
-import Footer from '../HomePage/Footer/Footer';
-import Header from '../HomePage/Header/Header';
 import './Blogs.css'
 
 const Blogs = () => {

@@ -1,12 +1,13 @@
 import React from 'react';
-import Footer from '../HomePage/Footer/Footer';
-import Header from '../HomePage/Header/Header';
+import CreativeTeam from '../CreativeTeam/CreativeTeam';
+import GetInTouch from '../GetInTouch/GetInTouch';
 import './About.css';
 
 const About = () => {
     return (
         <div>
-
+            <CreativeTeam />
+            <GetInTouch />
 
 
         </div>

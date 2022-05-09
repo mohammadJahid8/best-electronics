@@ -6,7 +6,6 @@ import './ItemDetail.css'
 const ItemDetail = () => {
     const { inventoryId } = useParams();
     const [item, setItem] = useItemDetail(inventoryId);
-    // const [sold, setSold] = useState(0);
     const { quantity, sold } = item;
     // console.log(quantity);
 
@@ -54,7 +53,7 @@ const ItemDetail = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                // alert('updated quantity');
+
             })
         event.target.reset();
 
@@ -63,7 +62,7 @@ const ItemDetail = () => {
 
     return (
         <>
-            <h1 className="text-center">Update Your Product</h1>
+            <h1 className="text-center all-titles mt-4 pb-4">Update Your Product</h1>
             <div className="d-flex mb-5 mt-3 container justify-content-center">
                 <div className="scd-card-container">
                     <div className='d-flex'>
@@ -72,8 +71,8 @@ const ItemDetail = () => {
                     <div className="">
                         <h2 className="card-titles">{item?.name}</h2>
                         <span className="card-description subtle">{item?.description}</span>
+                        <p>ID: {item?._id}</p>
                         <p>Supplier: {item?.supplier}</p>
-
                         <p>Sold: {sold}</p>
                         <p>
                             Quantity:
@@ -83,24 +82,13 @@ const ItemDetail = () => {
                                 'Stock out'
                             }
                         </p>
-
-                        {/* {item?.quantity > 0 ?
-                            < p > Quantity: {item?.quantity}</p>
-                            :
-                            <p>Quantity: Stock Out</p>
-                        } */}
                         <input type="button" value="Delivered" className='restock-button mb-3' onClick={handleUpdateQuantity} disabled={quantity <= 0} />
-
                         <form className="input-container " onSubmit={hanldeRestockItem}>
                             <input type="number" name="number" className="restock-field field-full align-none" placeholder="Quantity" />
                             <input type="submit" value="Restock" className='restock-button' />
                         </form>
-                        {/* <div className="card-read">Read</div> */}
-
                     </div>
-
                 </div>
-
             </div>
 
 

@@ -2,6 +2,15 @@ html {
   scroll-behavior: smooth;
 }
 
+body input:focus,
+button:focus {
+
+  border-color: inherit !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+
+}
+
 /* custom scroll bar */
 ::-webkit-scrollbar {
   width: 10px;

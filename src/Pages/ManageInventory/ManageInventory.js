@@ -1,13 +1,17 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
-import Footer from '../HomePage/Footer/Footer';
-import Header from '../HomePage/Header/Header';
+import './ManageInventory.css';
 
 const ManageInventory = () => {
     const [items, setItems] = useInventory();
+    const navigate = useNavigate();
 
+
+    const navigateToItemDetails = ItemId => {
+        navigate(`/inventory/${ItemId}`);
+    }
 
     //delete a item
     const handleDeleteItem = id => {
@@ -18,15 +22,17 @@ const ManageInventory = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    const remainingItems = items.filter(item => item._id !== id)
-                    setItems(remainingItems);
+                    
+                        const remainingItems = items.filter(item => item._id !== id)
+                        setItems(remainingItems);
+                    
                 })
         }
-    }
+    };
 
     return (
         <>
+            <h1 className="text-center all-titles mt-5 pt-5">Manage Inventory</h1>
             <div className="mt-5 container">
                 <Table striped bordered hover responsive>
                     <thead>
@@ -49,8 +55,9 @@ const ManageInventory = () => {
                                     <td>{item.quantity}</td>
                                     <td>${item.price}</td>
                                     <td>{item.description}</td>
-                                    <td>
-                                        <button className="btn btn-danger" onClick={() => handleDeleteItem(item._id)}>Delete</button>
+                                    <td className='td'>
+                                        <i className='pe-2'> <button className="btn btn-danger" onClick={() => handleDeleteItem(item._id)}>Delete</button></i>
+                                        <button className='btn btn-primary' onClick={() => navigateToItemDetails(item._id)}>Update</button>
                                     </td>
                                 </tr>
                             )
@@ -58,7 +65,7 @@ const ManageInventory = () => {
                     </tbody>
                 </Table>
                 <div className="d-flex justify-content-end pb-5 pe-2">
-                    <Link to='/additem' className="">Add New Item</Link>
+                    <Link to='/additem' className="add-button">Add New Item</Link>
                 </div>
             </div>
 

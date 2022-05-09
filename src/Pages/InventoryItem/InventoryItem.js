@@ -21,8 +21,8 @@ const InventoryItem = ({ item }) => {
                     <figcaption>
                         <h3>{name}</h3>
                         <p>{description}</p>
-                        <p>Supplier:{supplier}</p>
-                        <p>Available:{quantity}</p>
+                        <p className='mt-1'><span className='fw-bold'>Supplier:</span>{supplier}</p>
+                        <p><span className='fw-bold'>Available:</span>{quantity}</p>
                         <div className="price">
                             ${price}
                         </div>

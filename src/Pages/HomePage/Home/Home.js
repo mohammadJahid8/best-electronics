@@ -5,6 +5,7 @@ import CreativeTeam from '../../CreativeTeam/CreativeTeam';
 
 import Banner from '../Banner/Banner';
 import Stats from '../../Stats/Stats';
+import RunningOrder from '../../RunningOrder/RunningOrder';
 
 
 
@@ -13,10 +14,8 @@ const Home = () => {
         <div>
             <Banner />
             <Inventory />
+            <RunningOrder />
             <Stats />
-            {/* <CreativeTeam /> */}
-            {/* <GetInTouch /> */}
-
         </div>
     );
 };
