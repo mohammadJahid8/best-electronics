@@ -4,6 +4,7 @@ import Inventory from '../../Inventory/Inventory';
 import CreativeTeam from '../../CreativeTeam/CreativeTeam';
 
 import Banner from '../Banner/Banner';
+import Stats from '../../Stats/Stats';
 
 
 
@@ -12,8 +13,9 @@ const Home = () => {
         <div>
             <Banner />
             <Inventory />
-            <CreativeTeam />
-            <GetInTouch />
+            <Stats />
+            {/* <CreativeTeam /> */}
+            {/* <GetInTouch /> */}
 
         </div>
     );

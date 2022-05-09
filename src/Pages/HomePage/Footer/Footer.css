@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@300;400;500;600;800&family=Roboto:wght@300;400;500;700&family=Square+Peg&family=Ubuntu:wght@400;700&display=swap');
 
 body {
-    
+
     font-family: 'Poppins', sans-serif;
 }
 
@@ -28,8 +28,8 @@ ul {
 }
 
 .footer {
-    
-    background-color: #24262b;
+
+    background-color: #3e3e3e;
     padding: 40px 0 20px 0;
 
 }

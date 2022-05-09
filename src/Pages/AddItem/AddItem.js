@@ -2,8 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
-import Footer from '../HomePage/Footer/Footer';
-import Header from '../HomePage/Header/Header';
+
 import './AddItem.css'
 
 const AddItem = () => {
@@ -26,7 +25,7 @@ const AddItem = () => {
     return (
         <>
 
-
+            <h2 className='text-center mt-4 all-titles'>Please Add a Item</h2>
             <form className="form-style-9" onSubmit={handleSubmit(onSubmit)}>
                 <ul>
                     <li>

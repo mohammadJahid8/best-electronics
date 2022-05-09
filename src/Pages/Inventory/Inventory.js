@@ -1,12 +1,11 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { Link } from 'react-router-dom';
-import auth from '../../firebase.init';
+
 import './Inventory.css';
 import useInventory from '../../hooks/useInventory';
 import Loading from '../../Loading/Loading';
-import Footer from '../HomePage/Footer/Footer';
-import Header from '../HomePage/Header/Header';
+
 import InventoryItem from '../InventoryItem/InventoryItem';
 
 const Inventory = () => {
@@ -15,8 +14,9 @@ const Inventory = () => {
 
     return (
         <>
-
-            <h2 className='mt-5 mb-4 text-center'>Inventory</h2>
+            <div className="line-style mt-5 mb-5" >
+                <h1>Inventory Items</h1>
+            </div>
 
             {
                 items.length === 0 ? <Loading /> :
@@ -26,9 +26,14 @@ const Inventory = () => {
                         }
                     </div>
             }
-            <div className='text-center mb-5 '>
-                <Link to='/manageinventory' className='update-button w-25 text-decoration-none'>Manage Inventory</Link>
-
+            <div className='text-center mb-5 mt-5'>
+                <p>
+                    <Link to='/manageinventory' className='button-53 w-25 text-decoration-none'>Manage Inventory
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </Link>
+                </p>
             </div>
 
         </>

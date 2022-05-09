@@ -1,14 +1,3 @@
-/* .input-field {
-    padding: 5px 150px 5px 4px;
-    
-
-}
-.text-area{
-    padding-right: 169px;
-} */
-
-
-
 .form-style-9 {
     max-width: 450px;
     background: #FAFAFA;
@@ -37,6 +26,7 @@
     -moz-box-sizing: border-box;
     padding: 8px;
     outline: none;
+    border-radius: 4px;
     border: 1px solid #B0CFE0;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
@@ -76,8 +66,11 @@
     -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
     -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
     box-shadow: inset 0px 1px 0px 0px #3985B1;
-    background-color: #216288;
-    border: 1px solid #17445E;
+    /* background-color: #216288; */
+    background-color: #494848;
+    /* border: 1px solid #17445E; */
+    border-radius: 4px;
+    border: 1px solid #3e3e3e;
     display: inline-block;
     cursor: pointer;
     color: #FFFFFF;
@@ -88,6 +81,15 @@
 
 .form-style-9 ul li input[type="button"]:hover,
 .form-style-9 ul li input[type="submit"]:hover {
-    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
-    background-color: #28739E;
+    /* background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+    background-color: #28739E; */
+
+    background: linear-gradient(to bottom, #273035 5%, #1b262c 100%);
+    background-color: #15191b;
+}
+
+
+
+.all-titles{
+    
 }

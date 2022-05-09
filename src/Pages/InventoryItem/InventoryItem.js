@@ -28,11 +28,13 @@ const InventoryItem = ({ item }) => {
                         </div>
                         <div className="d-flex justify-content-center">
                             <div>
-                                <button className="update-button" onClick={() => navigateToItemDetails(_id)}> <span>Update</span></button>
+                                <button className="button-51" onClick={() => navigateToItemDetails(_id)}> <span>Update</span></button>
 
                             </div>
                         </div>
                     </figcaption>
+
+
                 </div>
             </div>
         </>
