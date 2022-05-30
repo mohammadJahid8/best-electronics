@@ -31,7 +31,7 @@ const RunningOrder = () => {
                         <ul className="row">
                             {
                                 items.slice(0, 3).map(item =>
-                                    <li className="col-md-4">
+                                    <li className="col-md-4" key={item._id}>
                                         <figure className="itemside mb-3">
                                             <div className="aside"><img src={item.image} className="img-sm border" alt="" /></div>
                                             <figcaption className="info align-self-center">

@@ -6,7 +6,7 @@ const Blogs = () => {
     return (
         <>
 
-            <div className="container mt-5 mb-5">
+            <div className="container mt-5 mb-5 pt-5">
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header>What are differences between JavaScript and nodejs?</Accordion.Header>

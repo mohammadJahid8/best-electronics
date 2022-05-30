@@ -17,7 +17,7 @@ Open [Best Electronics](https://assignment-11-85553.web.app/) to view it in your
 * There is a login page and a signup page.
 * Beside email and password User can also login through google.
 * There is also a about me route which consists of personal info.
-* At the end user will be redirected to 404 page if he tries to go any unknown page.
+* At the end user will be redirected to 404 page if he tries to go any unknown page...
 
 # Technologies used-
 * React js

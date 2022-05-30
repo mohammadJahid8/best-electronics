@@ -11,7 +11,7 @@ const ItemDetail = () => {
 
     //update quantity
     const handleUpdateQuantity = () => {
-        let newQuantity = quantity - 1;
+        let newQuantity = parseInt(quantity) - 1;
         let newSold = sold + 1;
         const newItem = { ...item, quantity: newQuantity, sold: newSold };
         console.log(newItem);
@@ -84,7 +84,7 @@ const ItemDetail = () => {
                         </p>
                         <input type="button" value="Delivered" className='restock-button mb-3' onClick={handleUpdateQuantity} disabled={quantity <= 0} />
                         <form className="input-container " onSubmit={hanldeRestockItem}>
-                            <input type="number" name="number" className="restock-field field-full align-none" placeholder="Quantity" />
+                            <input type="number" name="number" className="restock-field field-full align-none" placeholder="Quantity" required />
                             <input type="submit" value="Restock" className='restock-button' />
                         </form>
                     </div>
