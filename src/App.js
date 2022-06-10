@@ -22,7 +22,7 @@ import CreativeTeam from './Pages/CreativeTeam/CreativeTeam';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='max-width App'>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

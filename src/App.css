@@ -11,6 +11,11 @@ button:focus {
 
 }
 
+.max-width {
+  max-width: 100rem;
+  margin: auto;
+}
+
 /* custom scroll bar */
 ::-webkit-scrollbar {
   width: 10px;
